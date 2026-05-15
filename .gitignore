@@ -7,15 +7,81 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage
+*.lcov
+.nyc_output
+
+# Dependency directories
+node_modules/
+jspm_packages/
+web_modules/
+
+# Build outputs
 dist
 dist-ssr
+.next
+out
+.nuxt
+.output
+.vuepress/dist
+.temp
+**/.vitepress/dist
+**/.vitepress/cache
+.docusaurus
+
+# Cache
+.cache
+.parcel-cache
+.eslintcache
+.stylelintcache
+.grunt
+.fusebox/
+.firebase/
+.svelte-kit/
+.vite/
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional
+.npm
+.node_repl_history
+*.tgz
+.yarn-integrity
+.pnpm-store
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Misc
 *.local
+.lock-wscript
+build/Release
+.dynamodb/
+.serverless/
+.tern-port
+.vscode-test
 
-# Claude Code local settings
-.claude/
-
-# Editor directories and files
+# Editor directories
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -25,3 +91,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Claude Code local settings
+.claude/
