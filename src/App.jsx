@@ -640,7 +640,14 @@ export default function App() {
               started={started}
               videoId={nowPlaying?.videoId}
               startedAt={nowPlaying?.startedAt}
-              onEnded={() => advanceTrack(verdictGuess)}
+              onEnded={() => {
+                // Ignore if scrubbed to end too early (wall clock < 85% of duration)
+                if (duration > 0) {
+                  const playedSec = (Date.now() - (nowPlaying?.startedAt || 0)) / 1000
+                  if (playedSec < duration * 0.85) return
+                }
+                advanceTrack(verdictGuess)
+              }}
               onTitle={t => setNowPlaying(np => np && np.title!==t ? {...np,title:t} : np)}
               onDuration={d => { setDuration(d); setNowPlaying(np => np ? {...np,duration:d} : np) }}
               onTime={t => setElapsed(t)}
